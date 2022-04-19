@@ -3,6 +3,4 @@
 ##
 
 ### Collaborators
-*@elfsvet
-*@marisolxmatute10
-*@JuanTantau
+
