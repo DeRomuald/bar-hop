@@ -10,3 +10,7 @@
     background-size: cover;
     position: relative;
   }
+
+  #search-bar {
+    margin: 50px 0;
+  }
