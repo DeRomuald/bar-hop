@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- added icons -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -20,10 +21,14 @@
     <nav id="navigation" class="indigo darken-1">
         <div class="">
             <a href="#" class="brand-logo left">Logo</a>
-            <a class="right btn-floating btn-large lime darken-4"><i class="fa-solid fa-magnifying-glass"></i> </a>
-            <form action=""class= search-bar>
-            <input type="text" placeholder="search" name="">
-        </form>
+            <div class="search-box">
+                <input class= "search-txt" type="text" name="" placeholder="Type to search">
+                <a class="search-btn" href="#">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+
+                </a>
+            </div>
+        
             <!-- We can have search here like an icon click on it and the search bar show up.  -->
             
         </div>
