@@ -41,43 +41,32 @@ var getPosition = function (position) {
 
 
 $("#random-drink").on("click", function () {
-    console.log("Clicked");
-    // getLocation();
-    // $.get("www.thecocktaildb.com/api/json/v1/1/random.php", function (data) {
-    //     console.log(data);
-    // })
     fetch(urlCock)
         .then(response => response.json())
-        .then(function (data) {
-            console.log(data.drinks[0].strDrink)
-            console.log(data);
-            var drink = data.drinks[0];
-            $("#cocktail-1>div>span.card-title").html(data.drinks[0].strDrink)
-            $("#cocktail-1>div>img").attr("src", data.drinks[0].strDrinkThumb)
-            $("#cocktail-1>div.card-content>p").html(data.drinks[0].strInstructions);
-            for (var i = 1; i <= 15; i++) {
-                //  var ingr = "strIngredient"+i
-                //  if (data.drinks[0].ingr){
-                //      p.html(data.drinks[0]. + ingr)
-                //  }
-                if (drink['strIngridient'+i]){
-                    console.log(drink['strIngridient'+i])
-                    var p = "<p></p>";
-                    p.html(data.drinks[0]['strIngridient'+i])
-                    $("#cocktail-1>div.card-content").append(p)
-                }
-                // i need to dynamicly update ending of ingridient like strIngridient(NUMBER CHANGING)
+        .then(randomDrink);
+});
+
+//  ! read https://api.jquery.com/category/selectors/
+
+var randomDrink = function (data) {
+    {
+        // console.log(data.drinks[0].strDrink)
+        // console.log(data);
+        var drink = data.drinks[0];
+        $("#cocktail-1>div>span.card-title").html(drink.strDrink)
+        $("#cocktail-1>div>img").attr("src", drink.strDrinkThumb)
+        $(".instruction-1").html(drink.strInstructions);
+        // to iterate through data of ingridients and measure
+        $(".ingredients-1").empty();
+        for (var i = 1; i <= 15; i++) {
+            var ingredient = 'strIngredient' + i;
+            // if we have ingridient and it not equal to empty string
+            if (drink[ingredient] != null && drink[ingredient] != "") {
+                // create a new li with numbered ingredient and measure
+                $(".ingredients-1").append("<li class='ingredient-" + i + "'>" + drink[ingredient] + " " + drink["strMeasure" + i] + "</li>")
             }
 
-        });
+        }
 
-
-
-    //    $.get(url, function(data){
-    //        console.log('run time')
-    //        console.log(data);
-    //        googleData = data;
-    //        console.log(googleData);
-    //    })
-})
-//  ! read https://api.jquery.com/category/selectors/
+    }
+}
