@@ -38,7 +38,6 @@ var getPosition = function (position) {
     console.log(long);
     //    url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=bar&location=${lat}%2C${long}&radius=1500&type=bar&key=${googleApiKey}`;
 }
-var p = "<p></p>";
 
 
 $("#random-drink").on("click", function () {
@@ -48,21 +47,28 @@ $("#random-drink").on("click", function () {
     //     console.log(data);
     // })
     fetch(urlCock)
-    .then(response => response.json())
-    .then(function(data) {
-         console.log(data.drinks[0].strDrink)
-         console.log(data);
-         $("#cocktail-1>div>span.card-title").html(data.drinks[0].strDrink)
-         $("#cocktail-1>div>img").attr("src", data.drinks[0].strDrinkThumb)
-         $("#cocktail-1>div.card-content>p").html(data.drinks[0].strInstructions);
-         for (var i = 1; i <=15;i++){
-            //  var ingr = "strIngredient"+i
-            //  if (data.drinks[0].ingr){
-            //      p.html(data.drinks[0]. + ingr)
-            //  }
-         }
-         p.html("")
-         $("#cocktail-1>div.card-content").append
+        .then(response => response.json())
+        .then(function (data) {
+            console.log(data.drinks[0].strDrink)
+            console.log(data);
+            var drink = data.drinks[0];
+            $("#cocktail-1>div>span.card-title").html(data.drinks[0].strDrink)
+            $("#cocktail-1>div>img").attr("src", data.drinks[0].strDrinkThumb)
+            $("#cocktail-1>div.card-content>p").html(data.drinks[0].strInstructions);
+            for (var i = 1; i <= 15; i++) {
+                //  var ingr = "strIngredient"+i
+                //  if (data.drinks[0].ingr){
+                //      p.html(data.drinks[0]. + ingr)
+                //  }
+                if (drink['strIngridient'+i]){
+                    console.log(drink['strIngridient'+i])
+                    var p = "<p></p>";
+                    p.html(data.drinks[0]['strIngridient'+i])
+                    $("#cocktail-1>div.card-content").append(p)
+                }
+                // i need to dynamicly update ending of ingridient like strIngridient(NUMBER CHANGING)
+            }
+
         });
 
 
