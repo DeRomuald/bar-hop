@@ -11,6 +11,7 @@
     position: relative;
   }
 
-  #search-bar {
+  #search-bar, #randomiser {
     margin: 50px 0;
   }
+

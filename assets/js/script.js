@@ -1,57 +1,66 @@
-$(document).ready(function () {
-    console.log("ready")
-    //api key google AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw
 
-    // https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw
+//api key google AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw
 
-    // parameters location must be specified as latitude and longitude
-    // keyword "bar" "liquor store" /name/address/place/category/establishments
-    // opennow returns only places open now
-    // pagetoken Returns up to 20 results from a previously run search. Setting a pagetoken parameter will execute a search with the same parameters used previously — all parameters other than pagetoken will be ignored.
+// https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw
 
-    // radius defines distance in meters which to return place results. To specify towards location and a radius parameter prefer showing results withing that circle autocomplete - 50000 meters radius - 1000 meters
+// parameters location must be specified as latitude and longitude
+// keyword "bar" "liquor store" /name/address/place/category/establishments
+// opennow returns only places open now
+// pagetoken Returns up to 20 results from a previously run search. Setting a pagetoken parameter will execute a search with the same parameters used previously — all parameters other than pagetoken will be ignored.
 
-    // rankby the order in which results are listed: prominence - more valued and distance - closest.
+// radius defines distance in meters which to return place results. To specify towards location and a radius parameter prefer showing results withing that circle autocomplete - 50000 meters radius - 1000 meters
 
-    // type  type=hospital only one type can be provided other will be ignored. Supported types: bar/liquor_store
+// rankby the order in which results are listed: prominence - more valued and distance - closest.
 
-    // navigator.geolocation.getCurrentPosition(function(geolocation){console.log(geolocation)})
+// type  type=hospital only one type can be provided other will be ignored. Supported types: bar/liquor_store
 
-    
-    
-    var location = [];
-    var keyword = "liquor_store"; // or liquor store
-    var radius = "1000";
-    var type = 'liquor_store'; // should be bar or liquor_store - as default
-    var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
-    // var l1 = (26.1619712).toString();
-    // var l2 = (-80.1538048).toString();
-    var bigData;
-   navigator.geolocation.getCurrentPosition(function(geolocation){
-       console.log(geolocation);
-       bigData = geolocation;
-    return bigData;
-})
-    
-    var url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=${keyword}&location=${latitude}%2C${longitude}&radius=${radius}&type=${type}&key=${googleApiKey}`;
-    
-    // var axios = require('axios');
-    
-    // navigator.geolocation.getCurrentPosition(function(geolocation){console.log(geolocation)})
-    // var config = {
-    //   method: 'get',
-    //   url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&radius=1500&type=bar&keyword=bar&key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw',
-    //   headers: { }
-    // };
+// navigator.geolocation.getCurrentPosition(function(geolocation){console.log(geolocation)})
 
-    // axios(config)
-    // .then(function (response) {
-    //   console.log(JSON.stringify(response.data));
+var long;
+var lat;
+var url;
+var googleData;
+var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
+var urlCock = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+var getLocation = function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getPosition);
+
+    } else {
+        console.log("Geolocation API is not Supported");
+    }
+};
+
+var getPosition = function (position) {
+    lat = position.coords.latitude.toString();
+    console.log(lat);
+    long = position.coords.longitude.toString();
+    console.log(long);
+    //    url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=bar&location=${lat}%2C${long}&radius=1500&type=bar&key=${googleApiKey}`;
+}
+
+
+
+$("#random-drink").on("click", function () {
+    console.log("Clicked");
+    // getLocation();
+    // $.get("www.thecocktaildb.com/api/json/v1/1/random.php", function (data) {
+    //     console.log(data);
     // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    fetch(urlCock)
+    .then(response => response.json())
+    .then(function(data) {
+         console.log(data.drinks[0].strDrink)
+         $("#cocktail-1>.card-title").html(data.drinks[0].strDrink)
+        });
 
-    //result contains an array of places
 
+
+    //    $.get(url, function(data){
+    //        console.log('run time')
+    //        console.log(data);
+    //        googleData = data;
+    //        console.log(googleData);
+    //    })
 })
+//  ! read https://api.jquery.com/category/selectors/
