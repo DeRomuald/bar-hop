@@ -1,62 +1,28 @@
 .hero-image {
-    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/adam-jaime-dmkmrNptMpw-unsplash.jpg");
-  
-    /* Set a specific height */
-  height: 622px;
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/adam-jaime-dmkmrNptMpw-unsplash.jpg");
+  /* Set a specific height */
+  height             : 250px;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat  : no-repeat;
+  background-size    : cover;
+  position           : relative;
+}
 
-  #search-bar {
-    margin: 50px 0;
-  }
+#search-bar,
+#randomiser {
+  margin: 50px 0;
+}
 
-  /*search feature styling */
-  .search-box:hover > .search-txt{
-    width: 240px;
-    padding: 0 6px;
+.card-title {
+  background: rgb(205, 205, 205, 0.6);
+}
 
-  }
-  .search-box:hover > .search-btn{
-   background: white;
-  }
-  .search-box{
-   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background: #2f3640;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px;
-  }
-  .seach-btn{ 
-    color: #e84118;
-    float:right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #2f3640;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-  
-  }
-  
-  .search-txt{
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
-  }
+.cardHolder{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  flex-flow: row wrap;
+  width:100%;
+}

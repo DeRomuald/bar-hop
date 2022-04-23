@@ -7,7 +7,7 @@
 
 
 
-> Bar-Hop project. A web application with a cocktail-recipe search.
+> Bar-Hop project. A web application git with a cocktail-recipe search.
 > Live demo [_here_](https://deromuald.github.io/bar-hop/). 
 
 ## Table of contents
