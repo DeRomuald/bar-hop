@@ -26,3 +26,7 @@
   flex-flow: row wrap;
   width:100%;
 }
+
+#sup-me{
+  display: flex;
+}
