@@ -60,7 +60,7 @@ var randomDrink = function (data) {
     for (var i = 1; i <= 15; i++) {
         var ingredient = 'strIngredient' + i;
         var measure;
-        // if api has set measure to null
+        // if api set measure to null
         if(drink['strMeasure'+i] == null){
             measure = '';
         } else {
@@ -117,16 +117,10 @@ $("#find-recipe-btn").on("click", function () {
                 // function list ingredients
                 for (var j = 1; j <= 15; j++) {
                     var ingredient = 'strIngredient' + j;
-                    var measure;
-                    // if api has set measure to null
-                    if(firstCock['strMeasure'+i] == null){
-                        measure = '';
-                    } else {
-                        measure = drink['strMeasure'+i]
-                    }
+
                     var classIngredientNum = "#cocktail-"+i+">div>.ingredients";
                     if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
-                        $(classIngredientNum).append("<li class='ingredient" + j + "'>" + firstCock[ingredient] + " " + measure + "</li>")
+                        $(classIngredientNum).append("<li class='ingredient" + j + "'>" + firstCock[ingredient] + " " + firstCock["strMeasure" + j] + "</li>")
                     }
                 }
             }
