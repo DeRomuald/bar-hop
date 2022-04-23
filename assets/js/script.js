@@ -46,27 +46,25 @@ var getPosition = function (position) {
 //  ! read https://api.jquery.com/category/selectors/
 
 var randomDrink = function (data) {
-    {
-        // console.log(data.drinks[0].strDrink)
-        // console.log(data);
-        var drink = data.drinks[0];
-        $("#cocktail-1>div>span.card-title").html(drink.strDrink)
-        $("#cocktail-1>div>img").attr("src", drink.strDrinkThumb)
-        $(".instruction-1").html(drink.strInstructions);
-        $("#first-recipe").removeClass("hide")
-        // to iterate through data of ingridients and measure
-        $(".ingredients-1").empty();
-        for (var i = 1; i <= 15; i++) {
-            var ingredient = 'strIngredient' + i;
-            // if we have ingridient and it not equal to empty string
-            if (drink[ingredient] != null && drink[ingredient] != "") {
-                // create a new li with numbered ingredient and measure
-                $(".ingredients-1").append("<li class='ingredient-" + i + "'>" + drink[ingredient] + " " + drink["strMeasure" + i] + "</li>")
-            }
-
+    $("#recipes").empty();
+    // console.log(data.drinks[0].strDrink)
+    // console.log(data);
+    var drink = data.drinks[0];
+    var newSurp = $('<div id="surp-recipe" class="col s12 m4"><div class="card hoverable" id="cocktail-surp"><div class="card-image"><img src="' + drink.strDrinkThumb + '" /><span class="card-title black-text">' + drink.strDrink + '</span></div><div class="card-content"><ol class="ingredients-surp"></ol><p class="instruction-surp">' + drink.strInstructions + '</p></div></div><div>');
+    // to iterate through data of ingridients and measure
+    $("#recipes").append(newSurp);
+    // $(".ingredients-surp").empty();
+    for (var i = 1; i <= 15; i++) {
+        var ingredient = 'strIngredient' + i;
+        // if we have ingredient and it not equal to empty string
+        if (drink[ingredient] != null && drink[ingredient] != "") {
+            // create a new li with numbered ingredient and measure
+            $(".ingredients-surp").append("<li class='ingredient-surp-" + i + "'>" + drink[ingredient] + " " + drink["strMeasure" + i] + "</li>")
         }
 
     }
+
+
 }
 
 
@@ -77,6 +75,7 @@ $("#random-drink").on("click", function () {
 });
 // do display cocktail search by its name
 $("#find-recipe-btn").on("click", function () {
+    $("#recipes").empty();
     console.log("clicked")
     // information from user's input
     var input = $("#cocktail-name-input").val()
@@ -91,17 +90,8 @@ $("#find-recipe-btn").on("click", function () {
                 console.log(data);
                 var firstCock = data.drinks[i];
                 console.log(firstCock);
-                // var newItem = $("<div></div>").attr({
-                //     id: "recipe-"+i,
-                //     class: "col s12 m4",
-                // })
-                // .append($("<div></div>").attr({
-                //     class: "card hoverable",
-                //     id: "cocktail" + i,
-                // }))
-                // .append($("<div></div>"))
-
-                var item = $('<div id="recipe-'+i+'" class="col s12 m4"><div class="card hoverable" id="cocktail-'+i+'"><div class="card-image"><img src="'+firstCock.strDrinkThumb+'" /><span class="card-title black-text">'+firstCock.strDrink+'</span></div><div class="card-content"><ol class="ingredients-1"></ol><p class="instruction-1">'+firstCock.strInstructions+'</p></div></div></div>')
+                // create cards with picture and a recipe
+                var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card hoverable" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients-1"></ol><p class="instruction-1">' + firstCock.strInstructions + '</p></div></div></div>')
                 $("#recipes").append(item);
 
             }
