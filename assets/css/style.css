@@ -18,3 +18,11 @@
 .card-title {
   background: rgb(205, 205, 205, 0.6);
 }
+
+.cardHolder{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  flex-flow: row wrap;
+  width:100%;
+}
