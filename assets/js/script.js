@@ -50,7 +50,7 @@ var randomDrink = function (data) {
     // console.log(data.drinks[0].strDrink)
     // console.log(data);
     var drink = data.drinks[0];
-    var newSurp = $('<div id="surp-recipe" class="col s12 m4"><div class="card hoverable" id="cocktail-surp"><div class="card-image"><img src="' + drink.strDrinkThumb + '" /><span class="card-title black-text">' + drink.strDrink + '</span></div><div class="card-content"><ol class="ingredients-surp"></ol><p class="instruction-surp">' + drink.strInstructions + '</p></div></div><div>');
+    var newSurp = $('<div id="surp-recipe" class="col s12 m4"><div class="card" id="cocktail-surp"><div class="card-image"><img src="' + drink.strDrinkThumb + '" /><span class="card-title black-text">' + drink.strDrink + '</span></div><div class="card-content"><ol class="ingredients-surp"></ol><p class="instruction-surp">' + drink.strInstructions + '</p></div></div><div>');
     // to iterate through data of ingridients and measure
     $("#recipes").append(newSurp);
     // $(".ingredients-surp").empty();
@@ -92,7 +92,7 @@ $("#find-recipe-btn").on("click", function () {
                 var firstCock = data.drinks[i];
                 console.log(firstCock);
                 // create cards with picture and a recipe
-                var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card hoverable" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients-1"></ol><p class="instruction-1">' + firstCock.strInstructions + '</p></div></div></div>')
+                var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients-1"></ol><p class="instruction-1">' + firstCock.strInstructions + '</p></div></div></div>')
                 $("#recipes").append(item);
 
             }
