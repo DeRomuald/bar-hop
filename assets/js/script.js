@@ -22,6 +22,7 @@ var url;
 var googleData;
 var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
 var urlCock = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+var cocktailNameUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 var getLocation = function () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getPosition);
@@ -37,14 +38,10 @@ var getPosition = function (position) {
     long = position.coords.longitude.toString();
     console.log(long);
     //    url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=bar&location=${lat}%2C${long}&radius=1500&type=bar&key=${googleApiKey}`;
+    // url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=bar&location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw`;
 }
 
 
-$("#random-drink").on("click", function () {
-    fetch(urlCock)
-        .then(response => response.json())
-        .then(randomDrink);
-});
 
 //  ! read https://api.jquery.com/category/selectors/
 
@@ -56,6 +53,7 @@ var randomDrink = function (data) {
         $("#cocktail-1>div>span.card-title").html(drink.strDrink)
         $("#cocktail-1>div>img").attr("src", drink.strDrinkThumb)
         $(".instruction-1").html(drink.strInstructions);
+        $("#first-recipe").removeClass("hide")
         // to iterate through data of ingridients and measure
         $(".ingredients-1").empty();
         for (var i = 1; i <= 15; i++) {
@@ -70,3 +68,43 @@ var randomDrink = function (data) {
 
     }
 }
+
+
+$("#random-drink").on("click", function () {
+    fetch(urlCock)
+        .then(response => response.json())
+        .then(randomDrink);
+});
+// do display cocktail search by its name
+$("#find-recipe-btn").on("click", function () {
+    console.log("clicked")
+    // information from user's input
+    var input = $("#cocktail-name-input").val()
+    console.log(input);
+    // create a api ling by adding a name of cocktail in link for search keyword.
+    var searchUrl = cocktailNameUrl + input;
+    // getting data 
+    fetch(searchUrl)
+        .then(response => response.json())
+        .then(function (data) {
+            for (var i = 0; i < data.drinks.length; i++) {
+                console.log(data);
+                var firstCock = data.drinks[i];
+                console.log(firstCock);
+                // var newItem = $("<div></div>").attr({
+                //     id: "recipe-"+i,
+                //     class: "col s12 m4",
+                // })
+                // .append($("<div></div>").attr({
+                //     class: "card hoverable",
+                //     id: "cocktail" + i,
+                // }))
+                // .append($("<div></div>"))
+
+                var item = $('<div id="recipe-'+i+'" class="col s12 m4"><div class="card hoverable" id="cocktail-'+i+'"><div class="card-image"><img src="'+firstCock.strDrinkThumb+'" /><span class="card-title black-text">'+firstCock.strDrink+'</span></div><div class="card-content"><ol class="ingredients-1"></ol><p class="instruction-1">'+firstCock.strInstructions+'</p></div></div></div>')
+                $("#recipes").append(item);
+
+            }
+        });
+
+});
