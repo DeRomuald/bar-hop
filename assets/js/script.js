@@ -95,6 +95,7 @@ $("#find-recipe-btn").on("click", function () {
     $("#recipes").empty();
     // information from user's input
     var input = $("#cocktail-name-input").val()
+    // ! need to add storing in local storage for future suggestion
     $("#cocktail-name-input").val("");
     // create a api ling by adding a name of cocktail in link for search keyword.
     var searchUrl = cocktailNameUrl + input;
