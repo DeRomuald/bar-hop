@@ -79,7 +79,8 @@ $("#find-recipe-btn").on("click", function () {
     console.log("clicked")
     // information from user's input
     var input = $("#cocktail-name-input").val()
-    console.log(input);
+    $("#cocktail-name-input").val("");
+    // console.log(input);
     // create a api ling by adding a name of cocktail in link for search keyword.
     var searchUrl = cocktailNameUrl + input;
     // getting data 
