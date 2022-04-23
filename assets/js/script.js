@@ -54,6 +54,9 @@ var randomDrink = function (data) {
     // to iterate through data of ingridients and measure
     $("#recipes").append(newSurp);
     // $(".ingredients-surp").empty();
+    // we need function list ingredients
+    // listIngrediences(drink,"surp");
+
     for (var i = 1; i <= 15; i++) {
         var ingredient = 'strIngredient' + i;
         // if we have ingredient and it not equal to empty string
@@ -65,6 +68,15 @@ var randomDrink = function (data) {
     }
 
 
+}
+var listIngrediences = function (drink) { //drink is data.drinks[i]
+    for (var j = 1; j <= 15; j++) {
+        var ingredient = 'strIngredient' + j;
+        var classIngredientNum = ".ingredients"+j;
+        if (drink[ingredient] != null && drink[ingredient] != '') {
+            $(".ingredients").append("<li class='ingredient" + j + "'>" + drink[ingredient] + " " + drink["strMeasure" + j] + "</li>")
+        }
+    }
 }
 
 
@@ -92,10 +104,19 @@ $("#find-recipe-btn").on("click", function () {
                 var firstCock = data.drinks[i];
                 console.log(firstCock);
                 // create cards with picture and a recipe
-                var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients-1"></ol><p class="instruction-1">' + firstCock.strInstructions + '</p></div></div></div>')
+                var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients"></ol><p class="instruction">' + firstCock.strInstructions + '</p></div></div></div>')
                 $("#recipes").append(item);
-
+                // ! we need iterate for cocktail ingridients in here
+                // function list ingredients
+                for (var j = 1; j <= 15; j++) {
+                    var ingredient = 'strIngredient' + j;
+                    var classIngredientNum = "#cocktail-"+i+">div>.ingredients";
+                    if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
+                        $(classIngredientNum).append("<li class='ingredient" + j + "'>" + firstCock[ingredient] + " " + firstCock["strMeasure" + j] + "</li>")
+                    }
+                }
             }
-        });
 
+        })
 });
+
