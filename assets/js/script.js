@@ -114,13 +114,22 @@ $("#find-recipe-btn").on("click", function () {
                 var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients"></ol><p class="instruction">' + firstCock.strInstructions + '</p></div></div></div>')
                 $("#recipes").append(item);
                 // ! we need iterate for cocktail ingridients in here
+                
                 // function list ingredients
                 for (var j = 1; j <= 15; j++) {
-                    var ingredient = 'strIngredient' + j;
 
+
+                    var ingredient = 'strIngredient' + j;
                     var classIngredientNum = "#cocktail-"+i+">div>.ingredients";
+                    var measure;
+                    if(firstCock['strMeasure'+j] == null){
+                        measure = '';
+                    } else {
+                        measure = firstCock['strMeasure'+j]
+                    }
                     if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
-                        $(classIngredientNum).append("<li class='ingredient" + j + "'>" + firstCock[ingredient] + " " + firstCock["strMeasure" + j] + "</li>")
+                        $(classIngredientNum).append("<li class='ingredient" + j + "'>" + firstCock[ingredient] + " " + measure + "</li>")
+                        console.log(firstCock["strMeasure" + j]);
                     }
                 }
             }
