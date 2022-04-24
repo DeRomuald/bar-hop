@@ -96,27 +96,38 @@ var listOfCocktails = function (data) {
 }
 
 
+$("#random-drink").on("click", function () {
+    $.get(urlCock, randomDrink);
+});
 
-
-
+/*
+The fetch code will look like that
 $("#random-drink").on("click", function () {
     fetch(urlCock)
         .then(response => response.json())
         .then(randomDrink);
 });
+*/
+
 // do display cocktail search by its name
-$("#search-bar").submit(function (ev) {
-    ev.preventDefault();
-    // $("#recipes").empty();
+$("#search-bar").submit(function (event) {
+    event.preventDefault();
     // information from user's input
     var input = $("#cocktail-name-input").val()
-    // ! need to add storing in local storage for future suggestion
+
+    // clean the cocktail search bar after submit
     $("#cocktail-name-input").val("");
+
     // create a api ling by adding a name of cocktail in link for search keyword.
     var searchUrl = cocktailNameUrl + input;
     // getting data 
-    fetch(searchUrl)
-        .then(response => response.json())
-        .then(listOfCocktails)
+    $.get(searchUrl,listOfCocktails);
+
+    /*
+     The fetch code will look like that
+     fetch(searchUrl)
+         .then(response => response.json())
+         .then(listOfCocktails)
+    */
 });
 
