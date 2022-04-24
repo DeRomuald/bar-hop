@@ -72,28 +72,44 @@ var randomDrink = function (data) {
 
 var listOfCocktails = function (data) {
     $("#recipes").empty();
-    for (var i = 0; i < data.drinks.length; i++) {
-        var firstCock = data.drinks[i];
-        // create cards with picture and a recipe
-        var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients"></ol><p class="instruction">' + firstCock.strInstructions + '</p></div></div></div>')
-        $("#recipes").append(item);
-        //  we need iterate for cocktail ingridients in here
-        // function list ingredients
-        for (var j = 1; j <= 15; j++) {
-            var ingredient = 'strIngredient' + j;
-            var classIngredientNum = "#cocktail-" + i + ">div>.ingredients";
-            var measure;
-            if (firstCock['strMeasure' + j] == null) {
-                measure = '';
-            } else {
-                measure = firstCock['strMeasure' + j]
-            }
-            if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
-                $(classIngredientNum).append("<li class='ingredient" + j + "'>" + measure + " " + firstCock[ingredient] + "</li>")
+    // add if data not exists give a message to enter another drink
+    // change for modal later
+    if (data.drinks == null) {
+        $('#modal-no-data').modal();
+            // start when the page are ready
+            $('#modal-no-data').modal("open");
+    } else {
+        for (var i = 0; i < data.drinks.length; i++) {
+            var firstCock = data.drinks[i];
+            // create cards with picture and a recipe
+            var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients"></ol><p class="instruction">' + firstCock.strInstructions + '</p></div></div></div>')
+            $("#recipes").append(item);
+            //  we need iterate for cocktail ingridients in here
+            // function list ingredients
+            for (var j = 1; j <= 15; j++) {
+                var ingredient = 'strIngredient' + j;
+                var classIngredientNum = "#cocktail-" + i + ">div>.ingredients";
+                var measure;
+                if (firstCock['strMeasure' + j] == null) {
+                    measure = '';
+                } else {
+                    measure = firstCock['strMeasure' + j]
+                }
+                if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
+                    $(classIngredientNum).append("<li class='ingredient" + j + "'>" + measure + " " + firstCock[ingredient] + "</li>")
+                }
             }
         }
     }
 }
+
+// to open modal on the loading page.
+$(document).ready(function () {
+    // start modal without closing click anywhere
+    $('#modal-age-check').modal({dismissible:false});
+    // start when the page are ready
+    $('#modal-age-check').modal("open");
+});
 
 
 $("#random-drink").on("click", function () {
@@ -121,7 +137,9 @@ $("#search-bar").submit(function (event) {
     // create a api ling by adding a name of cocktail in link for search keyword.
     var searchUrl = cocktailNameUrl + input;
     // getting data 
-    $.get(searchUrl,listOfCocktails);
+
+    $.get(searchUrl, listOfCocktails);
+
 
     /*
      The fetch code will look like that
