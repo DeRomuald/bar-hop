@@ -64,19 +64,11 @@ var randomDrink = function (data) {
         // if we have ingredient and it not equal to empty string
         if (drink[ingredient] != null && drink[ingredient] != "") {
             // create a new li with numbered ingredient and measure
-            $(".ingredients-surp").append("<li class='ingredient-surp-" + i + "'>" + drink[ingredient] + " " + measure + "</li>")
+            $(".ingredients-surp").append("<li class='ingredient-surp-" + i + "'>" + measure + " " + drink[ingredient] + "</li>")
         }
     }
 }
-var listIngrediences = function (drink) { //drink is data.drinks[i]
-    for (var j = 1; j <= 15; j++) {
-        var ingredient = 'strIngredient' + j;
-        var classIngredientNum = ".ingredients" + j;
-        if (drink[ingredient] != null && drink[ingredient] != '') {
-            $(".ingredients").append("<li class='ingredient" + j + "'>" + drink[ingredient] + " " + drink["strMeasure" + j] + "</li>")
-        }
-    }
-}
+
 
 var listOfCocktails = function (data) {
     $("#recipes").empty();
@@ -97,7 +89,7 @@ var listOfCocktails = function (data) {
                 measure = firstCock['strMeasure' + j]
             }
             if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
-                $(classIngredientNum).append("<li class='ingredient" + j + "'>" + firstCock[ingredient] + " " + measure + "</li>")
+                $(classIngredientNum).append("<li class='ingredient" + j + "'>" + measure + " " + firstCock[ingredient] + "</li>")
             }
         }
     }
@@ -113,7 +105,8 @@ $("#random-drink").on("click", function () {
         .then(randomDrink);
 });
 // do display cocktail search by its name
-$("#find-recipe-btn").on("click", function () {
+$("#search-bar").submit(function (ev) {
+    ev.preventDefault();
     // $("#recipes").empty();
     // information from user's input
     var input = $("#cocktail-name-input").val()
