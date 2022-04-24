@@ -51,83 +51,101 @@ var randomDrink = function (data) {
     var newSurp = $('<div id="surp-recipe" class="col s12 m4 offset-m4"><div class="card" id="cocktail-surp"><div class="card-image"><img src="' + drink.strDrinkThumb + '" /><span class="card-title black-text">' + drink.strDrink + '</span></div><div class="card-content"><ol class="ingredients-surp"></ol><p class="instruction-surp">' + drink.strInstructions + '</p></div></div><div>');
     // to iterate through data of ingridients and measure
     $("#recipes").append(newSurp);
-    // $(".ingredients-surp").empty();
     // we need function list ingredients
-    // listIngrediences(drink,"surp");
-
     for (var i = 1; i <= 15; i++) {
         var ingredient = 'strIngredient' + i;
         var measure;
         // if api set measure to null
-        if(drink['strMeasure'+i] == null){
+        if (drink['strMeasure' + i] == null) {
             measure = '';
         } else {
-            measure = drink['strMeasure'+i]
+            measure = drink['strMeasure' + i]
         }
         // if we have ingredient and it not equal to empty string
         if (drink[ingredient] != null && drink[ingredient] != "") {
             // create a new li with numbered ingredient and measure
-            $(".ingredients-surp").append("<li class='ingredient-surp-" + i + "'>" + drink[ingredient] + " " + measure + "</li>")
-        }
-
-    }
-
-
-}
-var listIngrediences = function (drink) { //drink is data.drinks[i]
-    for (var j = 1; j <= 15; j++) {
-        var ingredient = 'strIngredient' + j;
-        var classIngredientNum = ".ingredients"+j;
-        if (drink[ingredient] != null && drink[ingredient] != '') {
-            $(".ingredients").append("<li class='ingredient" + j + "'>" + drink[ingredient] + " " + drink["strMeasure" + j] + "</li>")
+            $(".ingredients-surp").append("<li class='ingredient-surp-" + i + "'>" + measure + " " + drink[ingredient] + "</li>")
         }
     }
 }
 
 
+var listOfCocktails = function (data) {
+    $("#recipes").empty();
+    // add if data not exists give a message to enter another drink
+    // change for modal later
+    if (data.drinks == null) {
+        $('#modal-no-data').modal();
+        // start when the page are ready
+        $('#modal-no-data').modal("open");
+    } else {
+        for (var i = 0; i < data.drinks.length; i++) {
+            var firstCock = data.drinks[i];
+            // create cards with picture and a recipe
+            var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients"></ol><p class="instruction">' + firstCock.strInstructions + '</p></div></div></div>')
+            $("#recipes").append(item);
+            //  we need iterate for cocktail ingridients in here
+            // function list ingredients
+            for (var j = 1; j <= 15; j++) {
+                var ingredient = 'strIngredient' + j;
+                var classIngredientNum = "#cocktail-" + i + ">div>.ingredients";
+                var measure;
+                if (firstCock['strMeasure' + j] == null) {
+                    measure = '';
+                } else {
+                    measure = firstCock['strMeasure' + j]
+                }
+                if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
+                    $(classIngredientNum).append("<li class='ingredient" + j + "'>" + measure + " " + firstCock[ingredient] + "</li>")
+                }
+            }
+        }
+    }
+}
+
+// to open modal on the loading page.
+$(document).ready(function () {
+    // start modal without closing click anywhere
+    $('#modal-age-check').modal({ dismissible: false });
+    // start when the page are ready
+    $('#modal-age-check').modal("open");
+});
+
+
+$("#random-drink").on("click", function () {
+    $.get(urlCock, randomDrink);
+});
+
+/*
+The fetch code will look like that
 $("#random-drink").on("click", function () {
     fetch(urlCock)
         .then(response => response.json())
         .then(randomDrink);
 });
+*/
+
 // do display cocktail search by its name
-$("#find-recipe-btn").on("click", function () {
-    $("#recipes").empty();
+$("#search-bar").submit(function (event) {
+    event.preventDefault();
     // information from user's input
     var input = $("#cocktail-name-input").val()
-    // ! need to add storing in local storage for future suggestion
+
+    // clean the cocktail search bar after submit
     $("#cocktail-name-input").val("");
+
     // create a api ling by adding a name of cocktail in link for search keyword.
     var searchUrl = cocktailNameUrl + input;
     // getting data 
-    fetch(searchUrl)
-        .then(response => response.json())
-        .then(function (data) {
-            for (var i = 0; i < data.drinks.length; i++) {
-                var firstCock = data.drinks[i];
-                // create cards with picture and a recipe
-                var item = $('<div id="recipe-' + i + '" class="col s12 m4"><div class="card" id="cocktail-' + i + '"><div class="card-image"><img src="' + firstCock.strDrinkThumb + '" /><span class="card-title black-text">' + firstCock.strDrink + '</span></div><div class="card-content"><ol class="ingredients"></ol><p class="instruction">' + firstCock.strInstructions + '</p></div></div></div>')
-                $("#recipes").append(item);
-                // ! we need iterate for cocktail ingridients in here
-                
-                // function list ingredients
-                for (var j = 1; j <= 15; j++) {
+
+    $.get(searchUrl, listOfCocktails);
 
 
-                    var ingredient = 'strIngredient' + j;
-                    var classIngredientNum = "#cocktail-"+i+">div>.ingredients";
-                    var measure;
-                    if(firstCock['strMeasure'+j] == null){
-                        measure = '';
-                    } else {
-                        measure = firstCock['strMeasure'+j]
-                    }
-                    if (firstCock[ingredient] != null && firstCock[ingredient] != '') {
-                        $(classIngredientNum).append("<li class='ingredient" + j + "'>" + firstCock[ingredient] + " " + measure + "</li>")
-                    }
-                }
-            }
-
-        })
+    /*
+     The fetch code will look like that
+     fetch(searchUrl)
+         .then(response => response.json())
+         .then(listOfCocktails)
+    */
 });
 

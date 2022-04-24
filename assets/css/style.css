@@ -26,3 +26,17 @@
   flex-flow: row wrap;
   width:100%;
 }
+
+#sup-me{
+  display: flex;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
