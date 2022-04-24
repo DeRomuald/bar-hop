@@ -76,8 +76,8 @@ var listOfCocktails = function (data) {
     // change for modal later
     if (data.drinks == null) {
         $('#modal-no-data').modal();
-            // start when the page are ready
-            $('#modal-no-data').modal("open");
+        // start when the page are ready
+        $('#modal-no-data').modal("open");
     } else {
         for (var i = 0; i < data.drinks.length; i++) {
             var firstCock = data.drinks[i];
@@ -106,7 +106,7 @@ var listOfCocktails = function (data) {
 // to open modal on the loading page.
 $(document).ready(function () {
     // start modal without closing click anywhere
-    $('#modal-age-check').modal({dismissible:false});
+    $('#modal-age-check').modal({ dismissible: false });
     // start when the page are ready
     $('#modal-age-check').modal("open");
 });
