@@ -15,6 +15,7 @@
     <!-- added favicon in tab -->
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/map-style.css">
     <title>Bar-Hop</title>
 </head>
 
@@ -52,6 +53,12 @@
         </div>
         <div class="container row">
             <!-- map was here -->
+            <div id="google-map">
+                <div id="panel"></div>
+
+                <!-- Map appears here -->
+                <div id="map"></div>
+            </div>
             <!-- bar recommendation -->
             <div id="recommended-bars" class="col s6 offset-s3">
                 <div class="row">
@@ -106,10 +113,17 @@
             </div>
         </div>
     </footer>
+    <!-- jQuery js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- materialize js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- map script -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw&libraries=places&callback=initMap">
+        </script>
+        <script src="./assets/js/map-script.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
