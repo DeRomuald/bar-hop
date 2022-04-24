@@ -34,7 +34,7 @@ function initMap() {
             bounds.extend(pos);
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent('Location close to you');
             infoWindow.open(map);
             map.setCenter(pos);
 
