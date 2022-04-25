@@ -27,14 +27,6 @@
   width:100%;
 }
 /*search feature styling */
-.search-box:hover > .search-txt{
-  width: 240px;
-  padding: 0 6px;
-
-}
-.search-box:hover > .search-btn{
- background: white;
-}
 .search-box{
  position: absolute;
   top: 50%;
@@ -45,9 +37,17 @@
   border-radius: 40px;
   padding: 10px;
 }
-.seach-btn{ 
+.search-box:hover > .search-txt{
+  width: 240px;
+  padding: 0 6px;
+
+}
+.search-box:hover > .search-btn{
+ background: white;
+}
+.search-btn{ 
   color: #e84118;
-  float:right;
+  float: right;
   width: 40px;
   height: 40px;
   border-radius: 50%;
