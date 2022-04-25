@@ -83,3 +83,6 @@ main {
   border: 0;
 }
 
+.page-footer p {
+  padding-left: 0;
+}
