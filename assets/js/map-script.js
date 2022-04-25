@@ -189,6 +189,8 @@ var showPanel = function(placeResult) {
         let websitePara = document.createElement('p');
         let websiteLink = document.createElement('a');
         let websiteUrl = document.createTextNode(placeResult.website);
+        // open link in new window
+        websiteLink.setAttribute("target", "_black")
         websiteLink.appendChild(websiteUrl);
         websiteLink.title = placeResult.website;
         websiteLink.href = placeResult.website;

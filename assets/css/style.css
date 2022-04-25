@@ -79,10 +79,10 @@ main {
 
 .modal {
   border-radius: 15px;
-  background-color: rgba(62,70,76,0.8);
+  background-color: rgba(62,70,76,0.9);
 }
 .modal-footer, .modal-fixed-footer , .modal .modal-footer, .modal.modal-fixed-footer .modal-footer {
-  background-color: rgba(62,70,76,0.8);
+  background-color: rgba(62,70,76,0.9);
   border: 0;
 }
 

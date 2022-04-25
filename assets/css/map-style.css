@@ -20,11 +20,16 @@
     #panel {
         height: 700px;
         width: null;
-        background-color: white;
+        background-color: rgb(62,70,76);
         position: fixed;
         z-index: 1;
         overflow-x: hidden;
         transition: all .2s ease-out;
+        color: white;
+    }
+
+    #panel h1 {
+        font-size: 2.2rem;
     }
 
     #panel.open {
@@ -47,10 +52,10 @@
     }
 
     .details {
-        color: darkslategrey;
+        color: rgb(255, 255, 255);
     }
 
     a {
         text-decoration: none;
-        color: cadetblue;
+        color: rgb(184, 253, 255);
     }
