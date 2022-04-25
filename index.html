@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Materialize icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -22,7 +23,8 @@
 <body>
     <header id="header" class="">
         <!-- here goes the app name and nav bar -->
-        <nav id="navigation" class="hero-image indigo darken-1 ">
+        <!-- <div class="navbar-fixed"> -->
+        <nav id="navigation" class="hero-image">
             <div class="">
                 <!-- Big bground with picture of the cocktail. -->
                 <a href="#" class="brand-logo center">
@@ -30,8 +32,15 @@
                 </a>
                 <!-- <a class="right btn-floating btn-large lime darken-4"><i class="fa-solid fa-magnifying-glass"></i></a> -->
                 <!-- We can have search here like an icon click on it and the search bar show up.  -->
+                <ul id="nav-mobile" class="">
+                    <li><a href="#map"><i class="large material-icons" title="Map">map</i></a></li>
+                    <li><a href="#cocktail-name-input">
+                            <search class="large material-icons" title="Search">search</i>
+                        </a></li>
+                </ul>
             </div>
         </nav>
+        <!-- </div> -->
     </header>
     <main class="">
         <!-- </div> -->
@@ -44,14 +53,14 @@
         </form>
         <!-- add a button to give you a random drink -->
         <div id="randomiser" class="center">
-            <button id="random-drink" class="btn pink lighten-3 black-text">
+            <button id="random-drink" class="btn">
                 <span id="sup-me"><i class="material-icons">local_bar</i>Surprise Me!</span>
             </button>
         </div>
         <div id="recipes" class="row cardHolder">
             <!--  surprise me cocktail or cocktails by name search will go here -->
         </div>
-        <div class="container row col s12">
+        <div class="row col s">
             <!-- map was here -->
             <div id="google-map">
 
@@ -76,11 +85,12 @@
         </div>
 
         <!-- Modal Age check -->
-        <div id="modal-age-check" class="modal modal-fixed-footer">
+        <div id="modal-age-check" class="white-text modal modal-fixed-footer">
             <div class="modal-content center">
                 <h4>Are You 21 or Older?</h4>
                 <img class=" responsive-img" src="./assets/images/age-check.png" alt="Are you 21 or Older?">
-                <p>We also ask you to provide your location. To experience the full power of the <span id="dark-side">dark side</span> web application.</p>
+                <p>We also ask you to provide your location. To experience the full power of the <span
+                        id="dark-side">dark side</span> web application.</p>
             </div>
             <div class="modal-footer ">
                 <a href="https://kneebouncers.com/" class="modal-close waves-effect waves-red btn red darken-2">NO</a>
@@ -90,24 +100,69 @@
         </div>
 
         <!-- Modal Message -->
-        <div id="modal-no-data" class="modal">
+        <div id="modal-no-data" class="white-text modal">
             <div class="modal-content center">
-                <h4> <i class="material-icons">do_not_disturb_on</i>Cocktail is not in our records</h4>
+                <h4> <i class="material-icons">do_not_disturb_on</i> Cocktail is not in our records</h4>
                 <p>Please Enter another cocktail or get a random one.</p>
             </div>
             <div class="modal-footer ">
-                <a href="#search-bar" class="modal-close waves-effect waves-green btn green darken-2">OK</a>
+                <a href="#search-bar" class="modal-close waves-effect waves-green btn darken-2">OK</a>
 
             </div>
         </div>
     </main>
     <!-- Footer -->
-    <footer class="page-footer  brown darken-3">
-        Made by awesome team....with tons of 💌 😓 and ⛑️.
-        <div class="footer-copyright  brown darken-4">
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col m6 s12">
+                    <p class="grey-text text-lighten-4">
+                        Made by awesome team....with tons of 💌 😓 and ⛑️.
+                    </p>
+                    <ul>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="https://github.com/elfsvet" target="_blank">
+                                Stepan Matysik
+                            </a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="https://github.com/DeRomuald" target="_blank">
+                                Rome Romulus
+                            </a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="https://github.com/marisolxmatute10" target="_blank">
+                                Marisol Matute
+                            </a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="https://github.com/JuanTantau" target="_blank">
+                                Juan Tantau (Luis)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- fast nav -->
+                <div class="col m4 s12">
+                    <ul>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#map">
+                                <i class="material-icons" title="Map">map</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#search-bar">
+                                <i class="material-icons" title="Search">search</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
             <div class="container white-text">
                 © 2022 Copyright Text
-                <a class="white-text right" href="#!">More Links</a>
+                <a class="white-text right" href="https://www.thespruceeats.com/how-to-pair-cocktails-and-food-759992" target="_blank" title="Let's Find Out">Do you want to learn how to find paring for your cocktail?</a>
             </div>
         </div>
     </footer>

@@ -1,8 +1,8 @@
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/adam-jaime-dmkmrNptMpw-unsplash.jpg");
+  background-image   : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/adam-jaime-dmkmrNptMpw-unsplash.jpg");
   /* Set a specific height */
-  height             : 250px;
+  height             : 700px;
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
   background-repeat  : no-repeat;
@@ -10,30 +10,34 @@
   position           : relative;
 }
 
+
 #search-bar,
 #randomiser {
   margin: 50px 0;
 }
 
+
+
 .card-title {
   background: rgb(205, 205, 205, 0.6);
 }
 
-.cardHolder{
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-  flex-flow: row wrap;
-  width:100%;
+.cardHolder {
+  display        : flex;
+  align-items    : flex-start;
+  justify-content: flex-start;
+  flex-flow      : row wrap;
+  width          : 100%;
 }
 
-#sup-me{
+#sup-me {
   display: flex;
 }
 
 body {
-  display: flex;
-  min-height: 100vh;
+  background-color: rgb(62,70,76);
+  display       : flex;
+  min-height    : 100vh;
   flex-direction: column;
 }
 
@@ -52,3 +56,33 @@ main {
 #dark-side {
   text-decoration: line-through;
 }
+
+.page-footer {
+  background: rgb(28,31,40);
+  background: linear-gradient(5deg, rgba(28,31,40,1) 0%, rgba(64,48,30,1) 82%);
+}
+
+.card-content{
+  background-color: rgba(231,235,234,255);
+}
+
+.btn{
+  background-color: rgb(179,67,10);
+}
+
+.btn:hover{
+  background-color: rgb(96,65,34);
+}
+.btn:focus {
+  background-color: rgba(104,39,11,255);
+}
+
+.modal {
+  border-radius: 15px;
+  background-color: rgba(62,70,76,0.8);
+}
+.modal-footer, .modal-fixed-footer , .modal .modal-footer, .modal.modal-fixed-footer .modal-footer {
+  background-color: rgba(62,70,76,0.8);
+  border: 0;
+}
+

@@ -90,6 +90,6 @@ To do:
 Created by:
 - [Stepan Matysik](https://github.com/elfsvet)
 - [Rome Romulus](https://github.com/DeRomuald)
-- [Juan Tantau (Luis)](https://github.com/JuanTantau)
 - [Marisol Matute](https://github.com/marisolxmatute10)
+- [Juan Tantau (Luis)](https://github.com/JuanTantau)
 
