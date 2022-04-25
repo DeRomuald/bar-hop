@@ -21,7 +21,7 @@
         height: 700px;
         width: null;
         background-color: rgb(62,70,76);
-        position: fixed;
+        position: absolute;
         z-index: 1;
         overflow-x: hidden;
         transition: all .2s ease-out;
