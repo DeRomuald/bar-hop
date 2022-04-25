@@ -33,9 +33,9 @@
                 <!-- <a class="right btn-floating btn-large lime darken-4"><i class="fa-solid fa-magnifying-glass"></i></a> -->
                 <!-- We can have search here like an icon click on it and the search bar show up.  -->
                 <ul id="nav-mobile" class="">
-                    <li><a href="#map"><i class="large material-icons">map</i></a></li>
+                    <li><a href="#map"><i class="large material-icons" title="Map">map</i></a></li>
                     <li><a href="#cocktail-name-input">
-                            <search class="large material-icons">search</i>
+                            <search class="large material-icons" title="Search">search</i>
                         </a></li>
                 </ul>
             </div>
@@ -85,7 +85,7 @@
         </div>
 
         <!-- Modal Age check -->
-        <div id="modal-age-check" class="modal modal-fixed-footer">
+        <div id="modal-age-check" class="white-text modal modal-fixed-footer">
             <div class="modal-content center">
                 <h4>Are You 21 or Older?</h4>
                 <img class=" responsive-img" src="./assets/images/age-check.png" alt="Are you 21 or Older?">
@@ -100,7 +100,7 @@
         </div>
 
         <!-- Modal Message -->
-        <div id="modal-no-data" class="modal">
+        <div id="modal-no-data" class="white-text modal">
             <div class="modal-content center">
                 <h4> <i class="material-icons">do_not_disturb_on</i> Cocktail is not in our records</h4>
                 <p>Please Enter another cocktail or get a random one.</p>
@@ -147,12 +147,12 @@
                     <ul>
                         <li>
                             <a class="grey-text text-lighten-3" href="#map">
-                                <i class="material-icons">map</i>
+                                <i class="material-icons" title="Map">map</i>
                             </a>
                         </li>
                         <li>
                             <a class="grey-text text-lighten-3" href="#search-bar">
-                                <i class="material-icons">search</i>
+                                <i class="material-icons" title="Search">search</i>
                             </a>
                         </li>
                     </ul>
@@ -162,7 +162,7 @@
         <div class="footer-copyright">
             <div class="container white-text">
                 © 2022 Copyright Text
-                <a class="white-text right" href="https://www.thespruceeats.com/how-to-pair-cocktails-and-food-759992" target="_blank">Do you want to learn how to find paring for your cocktail?</a>
+                <a class="white-text right" href="https://www.thespruceeats.com/how-to-pair-cocktails-and-food-759992" target="_blank" title="Let's Find Out">Do you want to learn how to find paring for your cocktail?</a>
             </div>
         </div>
     </footer>
@@ -173,9 +173,9 @@
     <!-- materialize js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- !map script uncomment it to use maps -->
-    <!-- <script async defer
+    <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw&libraries=places&callback=initMap">
-        </script> -->
+        </script>
     <script src="./assets/js/map-script.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

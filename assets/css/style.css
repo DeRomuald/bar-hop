@@ -2,7 +2,7 @@
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image   : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/adam-jaime-dmkmrNptMpw-unsplash.jpg");
   /* Set a specific height */
-  height             : 250px;
+  height             : 700px;
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
   background-repeat  : no-repeat;
@@ -15,6 +15,8 @@
 #randomiser {
   margin: 50px 0;
 }
+
+
 
 .card-title {
   background: rgb(205, 205, 205, 0.6);
@@ -77,13 +79,10 @@ main {
 
 .modal {
   border-radius: 15px;
-  background-color: rgba(239,207,183,255);
+  background-color: rgba(62,70,76,0.8);
 }
 .modal-footer, .modal-fixed-footer , .modal .modal-footer, .modal.modal-fixed-footer .modal-footer {
-  background-color: rgba(239,207,183,255);
+  background-color: rgba(62,70,76,0.8);
   border: 0;
 }
 
-/* .modal.modal-fixed-footer .modal-footer {
-  background-color: rgba(239,207,183,255);
-} */
