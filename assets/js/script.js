@@ -131,3 +131,4 @@ $("#find-recipe-btn").on("click", function () {
         })
 });
 
+// search icon

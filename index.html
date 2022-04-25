@@ -14,7 +14,6 @@
     <!-- added favicon in tab -->
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://kit.fontawesome.com/2c4027eff2.js" crossorigin="anonymous"></script>
     <title>Bar-Hop</title>
 </head>
 
@@ -28,12 +27,19 @@
                 <!-- We can have search here like an icon click on it and the search bar show up.  -->
             </div>
              <!-- Search feature -->
-             <div class="search-box">
-                <input class= "search-txt" type="text" name="" placeholder="Type to search">
-                <a class="search-btn" href="#">
-            <i class="fa-solid fa-magnifying-glass"></i>  
-                </a>
-            </div>
+             <div class="search">
+                 <div class="icon"> </div>
+                 <div class ="input"></div>
+                 <input type="text" placeholder="Search" id="mysearch">
+             </div>
+                 <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
+             <script>
+                 const icon = document.querySelector('.icon');
+                 const search = document.querySelector('.search');
+                 icon.onclick = function (){
+                  search.classList.toggle('active')
+                 }
+             </script>
         </nav>
     </header>
     <main class="row">
