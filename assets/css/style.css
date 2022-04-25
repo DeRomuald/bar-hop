@@ -1,16 +1,88 @@
 .hero-image {
-    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/adam-jaime-dmkmrNptMpw-unsplash.jpg");
-  
-    /* Set a specific height */
-  height: 622px;
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image   : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/adam-jaime-dmkmrNptMpw-unsplash.jpg");
+  /* Set a specific height */
+  height             : 700px;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat  : no-repeat;
+  background-size    : cover;
+  position           : relative;
+}
 
-  #search-bar {
-    margin: 50px 0;
-  }
+
+#search-bar,
+#randomiser {
+  margin: 50px 0;
+}
+
+
+
+.card-title {
+  background: rgb(205, 205, 205, 0.6);
+}
+
+.cardHolder {
+  display        : flex;
+  align-items    : flex-start;
+  justify-content: flex-start;
+  flex-flow      : row wrap;
+  width          : 100%;
+}
+
+#sup-me {
+  display: flex;
+}
+
+body {
+  background-color: rgb(62,70,76);
+  display       : flex;
+  min-height    : 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+.modal.modal-fixed-footer .modal-footer {
+  text-align: center;
+}
+
+#dark-side {
+  text-decoration: line-through;
+}
+
+.page-footer {
+  background: rgb(28,31,40);
+  background: linear-gradient(5deg, rgba(28,31,40,1) 0%, rgba(64,48,30,1) 82%);
+}
+
+.card-content{
+  background-color: rgba(231,235,234,255);
+}
+
+.btn{
+  background-color: rgb(179,67,10);
+}
+
+.btn:hover{
+  background-color: rgb(96,65,34);
+}
+.btn:focus {
+  background-color: rgba(104,39,11,255);
+}
+
+.modal {
+  border-radius: 15px;
+  background-color: rgba(62,70,76,0.9);
+}
+.modal-footer, .modal-fixed-footer , .modal .modal-footer, .modal.modal-fixed-footer .modal-footer {
+  background-color: rgba(62,70,76,0.9);
+  border: 0;
+}
+
+.page-footer p {
+  padding-left: 0;
+}
