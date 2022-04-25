@@ -42,9 +42,13 @@ main {
 }
 
 .modal.modal-fixed-footer {
-  height: 23%;
+  height: 35%;
 }
 
 .modal.modal-fixed-footer .modal-footer {
   text-align: center;
+}
+
+#dark-side {
+  text-decoration: line-through;
 }

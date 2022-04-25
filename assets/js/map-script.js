@@ -2,9 +2,7 @@
  * prompted by your browser. If you see the error "Geolocation permission
  * denied.", it means you probably did not give permission for the browser * to locate you. */
 
-/* TODO: Step 2, Geolocate your user
- * Replace the code from here to the END TODO comment with new code from
- * codelab instructions. */
+/* TODO: Step 2, Geolocate your user */
 let pos;
 let map;
 let bounds;
@@ -12,7 +10,7 @@ let infoWindow;
 let currentInfoWindow;
 let service;
 let infoPane;
-function initMap() {
+var initMap = function () {
     // Initialize variables
     bounds = new google.maps.LatLngBounds();
     infoWindow = new google.maps.InfoWindow;
@@ -27,6 +25,9 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            // not to have a background of map before it loaded
+            document.getElementById("map").classList.remove('hide');
+
             map = new google.maps.Map(document.getElementById('map'), {
                 center: pos,
                 zoom: 15
@@ -34,7 +35,7 @@ function initMap() {
             bounds.extend(pos);
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location close to you');
+            infoWindow.setContent('Your location');
             infoWindow.open(map);
             map.setCenter(pos);
 
@@ -52,7 +53,7 @@ function initMap() {
 }
 
 // Handle a geolocation error
-function handleLocationError(browserHasGeolocation, infoWindow) {
+var handleLocationError = function (browserHasGeolocation, infoWindow) {
     // Set default location to Miami, FL
     pos = { lat: 25.7617, lng: -80.1918 };
     map = new google.maps.Map(document.getElementById('map'), {
@@ -75,7 +76,7 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
 /* END TODO: Step 2, Geolocate your user */
 /* TODO: Step 3B1, Call the Places Nearby Search */
 // Perform a Places Nearby Search Request
-function getNearbyPlaces(position) {
+var getNearbyPlaces=function(position) {
     let request = {
         location: position,
         rankBy: google.maps.places.RankBy.DISTANCE,
@@ -87,7 +88,7 @@ function getNearbyPlaces(position) {
 }
 
 // Handle the results (up to 20) of the Nearby Search
-function nearbyCallback(results, status) {
+var nearbyCallback=function(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         createMarkers(results);
     }
@@ -95,12 +96,14 @@ function nearbyCallback(results, status) {
 
 /* TODO: Step 3C, Generate markers for search results */
 // Set markers at the location of each place result
-function createMarkers(places) {
+var createMarkers= function(places) {
     places.forEach(place => {
         let marker = new google.maps.Marker({
             position: place.geometry.location,
             map: map,
-            title: place.name
+            title: place.name,
+            // if we wont to change the marker to cocktail glass -
+            // icon:"http://maps.google.com/mapfiles/kml/pal2/icon19.png" 
         });
 
         /* TODO: Step 4B: Add click listeners to the markers */
@@ -130,7 +133,7 @@ function createMarkers(places) {
 
 /* TODO: Step 4C: Show place details in an info window */
 // Builds an InfoWindow to display details above the marker
-function showDetails(placeResult, marker, status) {
+var showDetails= function(placeResult, marker, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         let placeInfowindow = new google.maps.InfoWindow();
         placeInfowindow.setContent('<div><strong>' + placeResult.name +
@@ -146,7 +149,7 @@ function showDetails(placeResult, marker, status) {
 
 /* TODO: Step 4D: Load place details in a sidebar */
 // Displays place details in a sidebar
-function showPanel(placeResult) {
+var showPanel = function(placeResult) {
     // If infoPane is already open, close it
     if (infoPane.classList.contains("open")) {
         infoPane.classList.remove("open");
@@ -196,3 +199,5 @@ function showPanel(placeResult) {
     // Open the infoPane
     infoPane.classList.add("open");
 }
+
+

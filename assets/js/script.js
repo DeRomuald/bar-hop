@@ -15,35 +15,33 @@
 // type  type=hospital only one type can be provided other will be ignored. Supported types: bar/liquor_store
 
 // navigator.geolocation.getCurrentPosition(function(geolocation){console.log(geolocation)})
+// var getLocation = function () {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(getPosition);
 
-var long;
-var lat;
-var url;
-var googleData;
-var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
-var urlCock = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-var cocktailNameUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
-var getLocation = function () {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getPosition);
+//     } else {
+//         console.log("Geolocation API is not Supported");
+//     }
+// };
 
-    } else {
-        console.log("Geolocation API is not Supported");
-    }
-};
-
-var getPosition = function (position) {
-    lat = position.coords.latitude.toString();
-    console.log(lat);
-    long = position.coords.longitude.toString();
-    console.log(long);
-    //    url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=bar&location=${lat}%2C${long}&radius=1500&type=bar&key=${googleApiKey}`;
-    // url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=bar&location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw`;
-}
-
-
-
+// var getPosition = function (position) {
+//     lat = position.coords.latitude.toString();
+//     // console.log(lat);
+//     long = position.coords.longitude.toString();
+//     // console.log(long);
+// }
 //  ! read https://api.jquery.com/category/selectors/
+
+// var long;
+// var lat;
+// var url;
+// var googleData;
+// var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
+var urlRandomCocktail = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+var urlCocktailByName = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
+
+
+
 
 var randomDrink = function (data) {
     $("#recipes").empty();
@@ -103,7 +101,7 @@ var listOfCocktails = function (data) {
     }
 }
 
-// to open modal on the loading page.
+// ! to open modal on the loading page. uncomment it !!
 $(document).ready(function () {
     // start modal without closing click anywhere
     $('#modal-age-check').modal({ dismissible: false });
@@ -111,15 +109,14 @@ $(document).ready(function () {
     $('#modal-age-check').modal("open");
 });
 
-
 $("#random-drink").on("click", function () {
-    $.get(urlCock, randomDrink);
+    $.get(urlRandomCocktail, randomDrink);
 });
 
 /*
 The fetch code will look like that
 $("#random-drink").on("click", function () {
-    fetch(urlCock)
+    fetch(urlRandomCocktail)
         .then(response => response.json())
         .then(randomDrink);
 });
@@ -135,11 +132,9 @@ $("#search-bar").submit(function (event) {
     $("#cocktail-name-input").val("");
 
     // create a api ling by adding a name of cocktail in link for search keyword.
-    var searchUrl = cocktailNameUrl + input;
+    var searchUrl = urlCocktailByName + input;
     // getting data 
-
     $.get(searchUrl, listOfCocktails);
-
 
     /*
      The fetch code will look like that

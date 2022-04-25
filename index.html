@@ -33,7 +33,7 @@
             </div>
         </nav>
     </header>
-    <main class="row">
+    <main class="">
         <!-- </div> -->
         <form id="search-bar" class="row my-3 col s12">
             <!-- search input here -->
@@ -58,24 +58,21 @@
                 <div id="panel"></div>
 
                 <!-- Map appears here -->
-                <div id="map"></div>
+                <div id="map" class="hide"></div>
             </div>
             <!-- bar recommendation -->
-            <div id="recommended-bars" class="col s6 offset-s3">
+            <!-- <div id="recommended-bars" class="col s6 offset-s3">
                 <div class="row">
                     <div class="col s12">
                         <div class="card-panel brown lighten-4">
                             <h5>Best Bars Ever</h5>
-                            <span class="black-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                                necessitatibus aspernatur numquam inventore cum ex saepe, perspiciatis incidunt quasi,
-                                molestias facere, nisi harum? In, perferendis delectus. Quod ad commodi quis
-                                consequuntur earum odio cumque voluptas facilis possimus soluta laudantium, ratione
-                                tenetur nihil et molestiae vero consectetur? Repellat expedita consequatur dolore.
-                            </span>
+                             <span class="black-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+                                necessitatibus aspernatur numquam inventore cum 
+                            </span> 
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Modal Age check -->
@@ -83,7 +80,7 @@
             <div class="modal-content center">
                 <h4>Are You 21 or Older?</h4>
                 <img class=" responsive-img" src="./assets/images/age-check.png" alt="Are you 21 or Older?">
-                <p></p>
+                <p>We also ask you to provide your location. To experience the full power of the <span id="dark-side">dark side</span> web application.</p>
             </div>
             <div class="modal-footer ">
                 <a href="https://kneebouncers.com/" class="modal-close waves-effect waves-red btn red darken-2">NO</a>
@@ -120,7 +117,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- materialize js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- map script -->
+    <!-- !map script uncomment it to use maps -->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw&libraries=places&callback=initMap">
         </script>
