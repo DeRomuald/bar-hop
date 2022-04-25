@@ -40,3 +40,15 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.modal.modal-fixed-footer {
+  height: 35%;
+}
+
+.modal.modal-fixed-footer .modal-footer {
+  text-align: center;
+}
+
+#dark-side {
+  text-decoration: line-through;
+}
