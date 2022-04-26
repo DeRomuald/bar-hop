@@ -41,7 +41,7 @@ var urlRandomCocktail = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 var urlCocktailByName = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
 
-
+var btnEl = $("#yes-btn");
 
 var randomDrink = function (data) {
     $("#recipes").empty();
@@ -101,12 +101,36 @@ var listOfCocktails = function (data) {
     }
 }
 
+
+
+
+
+
+
 // ! to open modal on the loading page. uncomment it !!
 $(document).ready(function () {
-    // start modal without closing click anywhere
-    $('#modal-age-check').modal({ dismissible: false });
-    // start when the page are ready
-    $('#modal-age-check').modal("open");
+    // TODO: if store value is not equal to yes then run modal. If value Yes then don't ask the person to answer it again.
+
+    if (localStorage.getItem("answer") === 'yes') {
+        console.log("it's already there");
+
+    } else {
+        // start modal without closing click anywhere
+        $('#modal-age-check').modal({ dismissible: false });
+        // start when the page are ready
+        $('#modal-age-check').modal("open");
+        btnEl.on("click", function () {
+            localStorage.setItem('answer', 'yes');
+            console.log("we are all set!");
+        })
+    }
+
+
+    // // start modal without closing click anywhere
+    // $('#modal-age-check').modal({ dismissible: false });
+    // // start when the page are ready
+    // $('#modal-age-check').modal("open");
+    // ! need to create setItem in local storage with answer of an user to check it later for an answer to decide if we want to ask the user again.
 });
 
 $("#random-drink").on("click", function () {
