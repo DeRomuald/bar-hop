@@ -43,6 +43,10 @@ $ code .
 
 ## Instructions
 <!-- left here remove it later -->
+1. When you open app you presented with Age Check Modal and Location Access Allow window.
+   - If you less than 21 and choose NO you will be redirected to a baby website. 
+   - If you won't give permission to access your location if will use default location: Miami,FL. And display 20 close liquor stores to you
+   - If you give permission to access your location the map will display close to your location
 1. Enter a cocktail and click "Find a Recipe":
    - something
    - something
@@ -70,7 +74,7 @@ $ code .
 For information that helps you plan your outfit for day and week.
 
 ## Project Status
-Project is: _in progress_
+Project is: _completed_
 
 ## Room for Improvement
 To do:
