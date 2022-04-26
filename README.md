@@ -1,11 +1,4 @@
-# Bar-Hop Team Project
-
-## Still in development
-
-### Collaborators
-
-
-
+# Bar-Hop Team Project ![Bar-Hop Logo](./assets/images/android-chrome-192x192.png)
 
 > Bar-Hop project. A web application with a cocktail-recipe search.
 > Live demo [_here_](https://deromuald.github.io/bar-hop/). 
@@ -26,7 +19,7 @@
 
 
 ## General Info
-Current app will provide an ability to find a cocktail recipe by its name. The searched cocktails will be stored in localStorage for easy access and last three will be displayed on the page.
+Current app will provide an ability to find a cocktail recipe by its name. As well, as ability to get a random cocktail by a click of a button.
 
 ## Technologies
 Project is created with:
@@ -34,20 +27,23 @@ Project is created with:
 - CSS
 - JavaScript
 - jQuery
-- API
+- Google Map API and Places API
+- TheCocktailDB Cocktail API
+
 
 ## Setup
 To open this project in vscode using git in Terminal/Git Bash:
 
 ```
-$ mkdir weather-dashboard
-$ cd code-quiz
+$ mkdir bar-hop
+$ cd bar-hop
 $ git clone https://github.com/DeRomuald/bar-hop.git
 $ code .
 ```
 
 ## Instructions
-1. Enter a cocktail and click "Filling Thirsty":
+<!-- left here remove it later -->
+1. Enter a cocktail and click "Find a Recipe":
    - something
    - something
 

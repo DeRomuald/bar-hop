@@ -14,6 +14,11 @@
 
 // type  type=hospital only one type can be provided other will be ignored. Supported types: bar/liquor_store
 
+// var long;
+// var lat;
+// var url;
+// var googleData;
+// var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
 // navigator.geolocation.getCurrentPosition(function(geolocation){console.log(geolocation)})
 // var getLocation = function () {
 //     if (navigator.geolocation) {
@@ -31,18 +36,14 @@
 //     // console.log(long);
 // }
 //  ! read https://api.jquery.com/category/selectors/
-
-// var long;
-// var lat;
-// var url;
-// var googleData;
-// var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
+//link for random cocktail
 var urlRandomCocktail = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-var urlCocktailByName = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
+// link for cocktail database
+var urlCocktailByName = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+// reference to modal yes btn click to store local storage not to ask user from the same browser again.
+var yesBtnEl = $("#yes-btn");
 
-
-var btnEl = $("#yes-btn");
-
+// get a random drink data from api call
 var randomDrink = function (data) {
     $("#recipes").empty();
     var drink = data.drinks[0];
@@ -66,8 +67,7 @@ var randomDrink = function (data) {
         }
     }
 }
-
-
+// search for cocktail in input area
 var listOfCocktails = function (data) {
     $("#recipes").empty();
     // add if data not exists give a message to enter another drink
@@ -101,38 +101,23 @@ var listOfCocktails = function (data) {
     }
 }
 
-
-
-
-
-
-
-// ! to open modal on the loading page. uncomment it !!
+// ! to open modal on the loading page. uncomment below !!
 $(document).ready(function () {
-    // TODO: if store value is not equal to yes then run modal. If value Yes then don't ask the person to answer it again.
-
+    // TODO: if store value is not equal to yes then run modal. If value Yes then don't ask the person to answer it again. ✅
     if (localStorage.getItem("answer") === 'yes') {
-        console.log("it's already there");
-
+        // do nothing
+        return;
     } else {
         // start modal without closing click anywhere
         $('#modal-age-check').modal({ dismissible: false });
         // start when the page are ready
         $('#modal-age-check').modal("open");
-        btnEl.on("click", function () {
+        yesBtnEl.on("click", function () {
             localStorage.setItem('answer', 'yes');
-            console.log("we are all set!");
         })
     }
-
-
-    // // start modal without closing click anywhere
-    // $('#modal-age-check').modal({ dismissible: false });
-    // // start when the page are ready
-    // $('#modal-age-check').modal("open");
-    // ! need to create setItem in local storage with answer of an user to check it later for an answer to decide if we want to ask the user again.
 });
-
+// gives random drink on click
 $("#random-drink").on("click", function () {
     $.get(urlRandomCocktail, randomDrink);
 });
