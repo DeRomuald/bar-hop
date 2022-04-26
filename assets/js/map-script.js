@@ -25,7 +25,7 @@ var initMap = function () {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            // not to have a background of map before it loaded
+            // map hides on start. to enable it to be displayed
             document.getElementById("map").classList.remove('hide');
 
             map = new google.maps.Map(document.getElementById('map'), {
@@ -54,6 +54,8 @@ var initMap = function () {
 
 // Handle a geolocation error
 var handleLocationError = function (browserHasGeolocation, infoWindow) {
+    // map hides on start. to enable it to be displayed
+    document.getElementById("map").classList.remove('hide');
     // Set default location to Miami, FL
     pos = { lat: 25.7617, lng: -80.1918 };
     map = new google.maps.Map(document.getElementById('map'), {
