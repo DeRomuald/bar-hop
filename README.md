@@ -71,15 +71,16 @@ $ code .
 
 
 ## Usage
-For information that helps you plan your outfit for day and week.
+For information that helps you make cocktails.
 
 ## Project Status
 Project is: _completed_
 
 ## Room for Improvement
 To do:
-- something
-- something
+- Add search feature of nearby bars 
+- Add menu to nearby bars 
+- Suggest bars with the best menu & ratings. 
 
 
 ## Acknowledgements
