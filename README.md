@@ -25,6 +25,7 @@ Current app will provide an ability to find a cocktail recipe by its name. As we
 Project is created with:
 - HTML
 - CSS
+- Materialize Framework
 - JavaScript
 - jQuery
 - Google Map API and Places API
