@@ -1,8 +1,8 @@
     /* Always set the map height explicitly to define the size of the div
      * element that contains the map. */
-     #map {
-        height: 700px;
-        width: 100%;
+    #map {
+        height          : 700px;
+        width           : 100%;
         background-color: grey;
     }
 
@@ -18,14 +18,14 @@
     /* Styling for an info pane that slides out from the left. 
 * Hidden by default. */
     #panel {
-        height: 700px;
-        width: null;
-        background-color: rgb(62,70,76);
-        position: absolute;
-        z-index: 1;
-        overflow-x: hidden;
-        transition: all .2s ease-out;
-        color: white;
+        height          : 700px;
+        width           : null;
+        background-color: rgb(62, 70, 76);
+        position        : absolute;
+        z-index         : 1;
+        overflow-x      : hidden;
+        transition      : all .2s ease-out;
+        color           : white;
     }
 
     #panel h1 {
@@ -38,16 +38,16 @@
 
     /* Styling for place details */
     .hero {
-        width: 100%;
-        height: auto;
+        width     : 100%;
+        height    : auto;
         max-height: 166px;
-        display: block;
+        display   : block;
     }
 
     .place,
     p {
-        font-family: 'open sans', arial, sans-serif;
-        padding-left: 18px;
+        font-family  : 'open sans', arial, sans-serif;
+        padding-left : 18px;
         padding-right: 18px;
     }
 
@@ -57,5 +57,5 @@
 
     a {
         text-decoration: none;
-        color: rgb(184, 253, 255);
+        color          : rgb(184, 253, 255);
     }

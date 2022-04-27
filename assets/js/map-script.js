@@ -25,7 +25,7 @@ var initMap = function () {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            // not to have a background of map before it loaded
+            //! map hides on start. to enable it to be displayed
             document.getElementById("map").classList.remove('hide');
 
             map = new google.maps.Map(document.getElementById('map'), {
@@ -54,6 +54,8 @@ var initMap = function () {
 
 // Handle a geolocation error
 var handleLocationError = function (browserHasGeolocation, infoWindow) {
+    //! map hides on start. to enable it to be displayed
+    document.getElementById("map").classList.remove('hide');
     // Set default location to Miami, FL
     pos = { lat: 25.7617, lng: -80.1918 };
     map = new google.maps.Map(document.getElementById('map'), {
@@ -76,7 +78,7 @@ var handleLocationError = function (browserHasGeolocation, infoWindow) {
 /* END TODO: Step 2, Geolocate your user */
 /* TODO: Step 3B1, Call the Places Nearby Search */
 // Perform a Places Nearby Search Request
-var getNearbyPlaces=function(position) {
+var getNearbyPlaces = function (position) {
     let request = {
         location: position,
         rankBy: google.maps.places.RankBy.DISTANCE,
@@ -88,7 +90,7 @@ var getNearbyPlaces=function(position) {
 }
 
 // Handle the results (up to 20) of the Nearby Search
-var nearbyCallback=function(results, status) {
+var nearbyCallback = function (results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         createMarkers(results);
     }
@@ -96,7 +98,7 @@ var nearbyCallback=function(results, status) {
 
 /* TODO: Step 3C, Generate markers for search results */
 // Set markers at the location of each place result
-var createMarkers= function(places) {
+var createMarkers = function (places) {
     places.forEach(place => {
         let marker = new google.maps.Marker({
             position: place.geometry.location,
@@ -133,7 +135,7 @@ var createMarkers= function(places) {
 
 /* TODO: Step 4C: Show place details in an info window */
 // Builds an InfoWindow to display details above the marker
-var showDetails= function(placeResult, marker, status) {
+var showDetails = function (placeResult, marker, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         let placeInfowindow = new google.maps.InfoWindow();
         placeInfowindow.setContent('<div><strong>' + placeResult.name +
@@ -149,7 +151,7 @@ var showDetails= function(placeResult, marker, status) {
 
 /* TODO: Step 4D: Load place details in a sidebar */
 // Displays place details in a sidebar
-var showPanel = function(placeResult) {
+var showPanel = function (placeResult) {
     // If infoPane is already open, close it
     if (infoPane.classList.contains("open")) {
         infoPane.classList.remove("open");
