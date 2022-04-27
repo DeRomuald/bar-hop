@@ -42,7 +42,6 @@ $ code .
 ```
 
 ## Instructions
-<!-- left here remove it later -->
 ### When you open app you presented with Age Check Modal and Location Access Allow window.
 - In Age Check Modal you can only click Yes or No. You can't close it with clicking outside of the modal.
    - If you less than 21 and choose NO you will be redirected to a baby website. 
@@ -55,28 +54,38 @@ $ code .
 - Enter a cocktail name in the and click "Find a Recipe"
    - You will be given result based on your request.
    - If you pick a cocktail that not in API database 
+      - It will open a Modal with a message that we don't have it in our database.
 
 2. You can start a new search, just follow instruction in step 1.
-- If you have previous searched a cocktail or three cocktails it will be displayed on the screen, new search will replace it.
 
-3. If you want to .....
+3. If you don't know what cocktail you want, but want to get something click on Surprise Me button.
+- It will display a cocktail randomly picked from our database.
    
-4. something.
+4. After you've done with picking and searching for cocktails you can check the closest liquor stores on the map.
+- If you click on a marker you will be displayed with:
+   - Name
+   - Rating
+   - Address
+   - And a website if the place have this info on the file.
 
-
+5. As a bonus you can read about paring your new drink with some food.
+- Just click [Do you want to find paring food for your cocktail?](https://www.thespruceeats.com/how-to-pair-cocktails-and-food-759992) at the footer, right next to our github account links.
 
 ## Features
-- API
-- DOM
-- localStorage
-- dynamically created elements
+- Search
+- Random Drink
+- Map
+- Modal Respond
+- Keeping Data in Local Storage
+- Find Location
+- Dynamically Created Elements
 
 ## Screenshots
 ![Example screenshot](./assets/images/screenshot.gif)
 
 
 ## Usage
-For information that helps you make cocktails.
+For pleasure and comfort, information that helps you make cocktails and locate closest stores.
 
 ## Project Status
 Project is: _completed_
@@ -87,15 +96,19 @@ To do:
 - Add menu to nearby bars 
 - Suggest bars with the best menu & ratings. 
 
-
 ## Acknowledgements
 - This project was inspired by UM Coding Boot Camp Project #1.
+- This project using [Google Maps Platform](https://developers.google.com/maps).
+- This project using [Cocktail API](https://www.thecocktaildb.com/api.php).
+- This project thinks of people needs with finding right meal for a cocktail by redirection to [The Spruce Eats](https://www.thespruceeats.com/how-to-pair-cocktails-and-food-759992).
+- This project lets people have fun, no matter of their age, using help of [KneeBouncers](https://kneebouncers.com/).
+
 - This project was creating from scratch using ideas and believes of an incredible team of people👽.
 ![Example gif](./assets/images/team-people.jpg)
+
 ## Contacts
 Created by:
-- [Stepan Matysik](https://github.com/elfsvet)
-- [Rome Romulus](https://github.com/DeRomuald)
-- [Marisol Matute](https://github.com/marisolxmatute10)
-- [Juan Tantau (Luis)](https://github.com/JuanTantau)
-
+- [Stepan Matysik](https://github.com/elfsvet).
+- [Rome Romulus](https://github.com/DeRomuald).
+- [Marisol Matute](https://github.com/marisolxmatute10).
+- [Juan Tantau (Luis)](https://github.com/JuanTantau).
