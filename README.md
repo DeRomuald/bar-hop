@@ -84,6 +84,7 @@ $ code .
 ## Screenshots
 ![Example screenshot](./assets/images/screenshot.gif)
 
+You can  check the demo [here](https://youtu.be/R3NqT9h9_90).
 
 ## Usage
 For pleasure and comfort, information that helps you make cocktails and locate closest stores.
