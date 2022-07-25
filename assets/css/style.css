@@ -97,3 +97,7 @@ main {
 .page-footer p {
   padding-left: 0;
 }
+
+input, select, textarea{
+  color: #ffffff;
+}
