@@ -1,7 +1,7 @@
 
-//api key google AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw
+//api key google AIzaSyDtvizXuhsxnBzRxtdyUgYFlgSLyi6GcqA
 
-// https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw
+// https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDtvizXuhsxnBzRxtdyUgYFlgSLyi6GcqA
 
 // parameters location must be specified as latitude and longitude
 // keyword "bar" "liquor store" /name/address/place/category/establishments
@@ -18,7 +18,7 @@
 // var lat;
 // var url;
 // var googleData;
-// var googleApiKey = "AIzaSyDLf-G0K6XFv8PvM7171bTHYQe7BHieNEw";
+// var googleApiKey = "AIzaSyDtvizXuhsxnBzRxtdyUgYFlgSLyi6GcqA";
 // navigator.geolocation.getCurrentPosition(function(geolocation){console.log(geolocation)})
 // var getLocation = function () {
 //     if (navigator.geolocation) {
